@@ -887,7 +887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &256513038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5287,7 +5287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 0
+  m_ProtocolType: 1
   m_MaxPacketQueueSize: 128
   m_MaxPayloadSize: 6144
   m_HeartbeatTimeoutMS: 500
@@ -5367,6 +5367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19671d1c76a73742bec51cf81d826a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxConnections: 20
+  transport: {fileID: 1492011007}
 --- !u!1 &1523045424
 GameObject:
   m_ObjectHideFlags: 0
