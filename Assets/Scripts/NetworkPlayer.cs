@@ -46,7 +46,7 @@ public class NetworkPlayer : NetworkBehaviour
     {
         if (IsOwner)
         {
-            root.position = VrRigPreference.Singleton.root.position;
+            root.position = VrRigPreference.Singleton.root.position - new Vector3(0, 0.1f, 0);
             root.rotation = VrRigPreference.Singleton.root.rotation;
             head.position = VrRigPreference.Singleton.head.position;
             head.rotation = VrRigPreference.Singleton.head.rotation;
@@ -57,11 +57,12 @@ public class NetworkPlayer : NetworkBehaviour
             body.position = head.position;
 
             body.rotation = Quaternion.Euler(body.rotation.eulerAngles.x, head.rotation.eulerAngles.y, body.rotation.eulerAngles.z);
-        }
+        
 
         if (leftGrabbedObject) MoveGrabbedObjectServerRpc(leftGrabbedObject, leftHand.position, leftHand.rotation);
         if (rightGrabbedObject) MoveGrabbedObjectServerRpc(rightGrabbedObject, rightHand.position, rightHand.rotation);
-        
+        }
+
     }
 
     public void AvatarSelectGrabEnterEventHub(NetworkObject netObj, bool wichHand) {
