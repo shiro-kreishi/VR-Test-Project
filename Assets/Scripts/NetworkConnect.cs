@@ -68,10 +68,10 @@ public class NetworkConnect : MonoBehaviour
 
         NetworkManager.Singleton.StartHost();
 
-        GameObject spawner = Resources.Load("Table") as GameObject;
-        GameObject go = Instantiate(spawner, ObjectSpawnerPosition, Quaternion.identity);
-        go.GetComponent<NetworkObject>().Spawn();
-        go.GetComponent<GrabbableCreator>().SpawnGrabbables();
+        //GameObject spawner = Resources.Load("Table") as GameObject;
+        //GameObject go = Instantiate(spawner, ObjectSpawnerPosition, Quaternion.identity);
+        //go.GetComponent<NetworkObject>().Spawn();
+        //go.GetComponent<GrabbableCreator>().SpawnGrabbables();
     }
 
     public async void Join()
