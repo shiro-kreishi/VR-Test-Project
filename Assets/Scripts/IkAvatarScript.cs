@@ -13,7 +13,8 @@ public class MapTransform {
     }
 }
 public class IkAvatarScript : MonoBehaviour {
-    [SerializeField] private MapTransform head;
+    public MapTransform head;
+
     [SerializeField] private MapTransform leftHand;
     [SerializeField] private MapTransform rightHand;
 
@@ -29,6 +30,7 @@ public class IkAvatarScript : MonoBehaviour {
     void LateUpdate() {
         transform.position = IKHead.position + headBodyOffset;
         transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(IKHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness); ;
+        
         head.MapVRAvatar();
         leftHand.MapVRAvatar();
         rightHand.MapVRAvatar();
