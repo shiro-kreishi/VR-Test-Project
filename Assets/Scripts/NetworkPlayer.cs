@@ -32,21 +32,26 @@ public class NetworkPlayer : NetworkBehaviour
         XRRig = VrRigPreference.Singleton.XRRig;
 
         if (XRRig) {
-            print("TRUEEEEE");
+            //print("TRUEEEEE");
             XRRig.GetComponent<XRGrabEventHandler>().avatarNetworkObjectId = myID;
             XRRig.GetComponent<XRGrabEventHandler>().avatarObject = transform.gameObject;
         }
         else {
-            print("FAAAALSSS");
+            //print("FAAAALSSS");
         }
 
+    }
+
+    public void Test()
+    {
+        print("true");
     }
 
     void Update()
     {
         if (IsOwner)
         {
-            root.position = VrRigPreference.Singleton.root.position - new Vector3(0, 0.1f, 0);
+            root.position = VrRigPreference.Singleton.root.position;
             root.rotation = VrRigPreference.Singleton.root.rotation;
             head.position = VrRigPreference.Singleton.head.position;
             head.rotation = VrRigPreference.Singleton.head.rotation;
@@ -66,13 +71,34 @@ public class NetworkPlayer : NetworkBehaviour
     }
 
     public void AvatarSelectGrabEnterEventHub(NetworkObject netObj, bool wichHand) {
-        if (wichHand) 
+        if (wichHand)
+        {
             leftGrabbedObject = netObj;
+            if (netObj.GetComponent<FireBulletOnActivate>() != null)
+            {
+                print("yes");
+            }
+            else
+            {
+                print("NOOOO");
+            }
+        }
         else
+        {
             rightGrabbedObject = netObj;
+            if (netObj.GetComponent<FireBulletOnActivate>() != null)
+            {
+                print("yes");
+            }
+            else
+            {
+                print("NOOOO");
+            }
+        }
 
         setIsKinematicServerRpc(netObj, true);
 
+        
     }
     public void AvatarSelectGrabExitEventHub(NetworkObject netObj, bool wichHand) {
         if (wichHand) 
@@ -89,7 +115,7 @@ public class NetworkPlayer : NetworkBehaviour
         if (grabbedObj.TryGet(out NetworkObject netObj)) {
             netObj.transform.position = position;
             netObj.transform.rotation = rotation;
-            Debug.Log("Client moved object");
+            //Debug.Log("Client moved object");
         }
     }
 

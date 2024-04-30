@@ -27,8 +27,10 @@ public class IkAvatarScript : MonoBehaviour {
 
     [SerializeField] private Vector3 headBodyOffset;
 
+    private float yOffset = 0;
+
     void LateUpdate() {
-        transform.position = IKHead.position + headBodyOffset;
+        transform.position = IKHead.position + headBodyOffset + new Vector3(0, yOffset, 0);
         transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(IKHead.forward, Vector3.up).normalized, Time.deltaTime * turnSmoothness); ;
         
         head.MapVRAvatar();
@@ -36,5 +38,10 @@ public class IkAvatarScript : MonoBehaviour {
         rightHand.MapVRAvatar();
         leftHandRig.MapVRAvatar();
         rightHandRig.MapVRAvatar();
+    }
+
+    public void ChengeRost(float value)
+    {
+        yOffset = value;
     }
 }
