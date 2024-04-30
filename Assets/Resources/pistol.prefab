@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 9192721826613922753}
   - component: {fileID: 6632860950559009831}
   - component: {fileID: 7828180912029006962}
-  - component: {fileID: 1752685824603192588}
+  - component: {fileID: 319171688039406608}
   m_Layer: 3
   m_Name: pistol
   m_TagString: Untagged
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1752685824603192588
+--- !u!114 &319171688039406608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,12 +346,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 488788923193133263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20dae89740b9dd4fa09074de30cc10c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7de9af29e16dc4043b609cd2fe8d2338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6522551731104572902, guid: 8c452167ce8ac1145baefa802cc1a19a, type: 3}
+  bulletPrefab: {fileID: 6522551731104572902, guid: 8c452167ce8ac1145baefa802cc1a19a,
+    type: 3}
   spawnPoint: {fileID: 6958208866971995404}
-  fireSpeed: 20
+  speed: 20
 --- !u!1 &6296101630114990821
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +528,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6958208866971995404}
-  - component: {fileID: 4533960536338304842}
   m_Layer: 3
   m_Name: GameObject
   m_TagString: BulletSpawn
@@ -544,23 +544,9 @@ Transform:
   m_GameObject: {fileID: 7640871930564038379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0134, z: 0.0296}
+  m_LocalPosition: {x: 0, y: 0.0134, z: 0.0238}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7464687463502976371}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4533960536338304842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7640871930564038379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea85a10976ec8c49a803dc951d17a1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6522551731104572902, guid: 8c452167ce8ac1145baefa802cc1a19a,
-    type: 3}

@@ -74,26 +74,10 @@ public class NetworkPlayer : NetworkBehaviour
         if (wichHand)
         {
             leftGrabbedObject = netObj;
-            if (netObj.GetComponent<FireBulletOnActivate>() != null)
-            {
-                print("yes");
-            }
-            else
-            {
-                print("NOOOO");
-            }
         }
         else
         {
             rightGrabbedObject = netObj;
-            if (netObj.GetComponent<FireBulletOnActivate>() != null)
-            {
-                print("yes");
-            }
-            else
-            {
-                print("NOOOO");
-            }
         }
 
         setIsKinematicServerRpc(netObj, true);
