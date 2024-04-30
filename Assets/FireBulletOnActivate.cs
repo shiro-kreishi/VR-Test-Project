@@ -5,7 +5,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class FireBulletOnActivate : NetworkBehaviour
+public class FireBulletOnActivate : MonoBehaviour
 {
     public GameObject bullet;
     public Transform spawnPoint;
@@ -15,19 +15,24 @@ public class FireBulletOnActivate : NetworkBehaviour
     private void Start() {
         StartShot();
     }
+
+
     void StartShot()
     {
         GameObject bulletSpawnerObject = GameObject.FindGameObjectWithTag("BulletSpawn");
         if (bulletSpawnerObject != null)
         {
-            Debug.Log("Все норм!");
+            //Debug.Log("Все норм!");
             bulletSpawnScript = bulletSpawnerObject.GetComponent<BulletSpawner>();
             if (bulletSpawnScript != null)
             {
-                Debug.Log("Скрипт Найден!");
+                //Debug.Log("Скрипт Найден!");
                 XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
 
-                grabbable.activated.AddListener((ActivateEventArgs arg) => FireBullet(spawnPoint.transform.position, spawnPoint.rotation));
+                grabbable.activated.AddListener((arg) => {
+                    FireBullet(spawnPoint.transform.position, spawnPoint.rotation);
+
+                });
             }
             else
             {

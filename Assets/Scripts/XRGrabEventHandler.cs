@@ -27,4 +27,6 @@ public class XRGrabEventHandler : MonoBehaviour
         var grabbedObj = eventArgs.interactableObject.transform.GetComponent<NetworkObject>();
         avatarObject.GetComponent<NetworkPlayer>().AvatarSelectGrabExitEventHub(grabbedObj, false);
     }
+
+
 }
